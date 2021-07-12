@@ -18,7 +18,19 @@ function acf_register_required_plugins() {
 			'name'      => 'attachments',
 			'slug'      => 'attachments',
 			'required'  => false,
-		),		
+		),
+
+		array(
+			'name'      => 'google map',
+			'slug'      => 'wp-google-maps',
+			'required'  => false,
+		),
+		
+		array(
+			'name'      => 'contact form',
+			'slug'      => 'contact-form-7',
+			'required'  => false,
+		),	
 	);
 	
 
