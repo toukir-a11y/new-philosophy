@@ -134,16 +134,27 @@ register_sidebar( array(
 }
 
 add_filter("widgets_init","philosophy_widgets");
+
 function search_form($form){
     $home_url= home_url("/");
     $title = __("search for:","philosophy");
     $value = __("Search","philosophy");
+    $post_type= <<<PT
+<input type= "hidden" name="post_type" value="post">
+PT;
+    if(is_post_type_archive('laptop')){
+   $post_type= <<<PT
+<input type= "hidden" name="post_type" value="laptop">
+PT;
+    }
+
     $new_form= <<<FORM
     <form role="search" method="get" class="header__search-form" action="{$home_url}">
     <label>
         <span class="hide-content">{$value}</span>
         <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="{$title}" autocomplete="off">
         </label>
+        {$post_type}
         <input type="submit" class="search-submit" value="{$value}">
     </form>
     FORM;
